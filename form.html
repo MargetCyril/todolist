@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form method="post" onsubmit="get_json()">
+        <fieldset>
+            <h1> Nouvelle commande</h1>
+            <label for="client">Client</label><input type="text" id="client" value=""></input><br>
+            <label for="commande">Détail de la commande</label><textarea id="commande" value=""></textarea><br>
+            <label for="recu">Date de commande</label><input type="date" id="recu"></input><br>
+            <label for="limite">Date de livraison</label><input type="date" id="limite"></input><br>
+        </fieldset>
+        <button type="submit">envoyer</button>
+        <button type="button" onclick="sauvegarder()">save</button>
+    </form>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Détail</th>
+                <th>date 1</th>
+                <th>date 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="test"></tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="script.js"></script>  
+    
+</body>
+
+</html>
