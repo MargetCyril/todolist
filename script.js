@@ -8,9 +8,8 @@ function get_json() {
    const myJSON = JSON.stringify(facture)
    let num = new Date()
    num = JSON.stringify(num)
-   localStorage.setItem(num, myJSON)
+   let PHP = num + ", "+ myJSON;
 
-   let ligne = localStorage.getItem(num)
 
    const tbl = document.createElement("table");
    const tblBody = document.createElement("tbody");
