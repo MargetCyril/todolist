@@ -10,21 +10,20 @@
 
 <body>
 
-    <form  action="form.php" method="post" onsubmit="get_json()">
+    <form  action="form.php" method="POST">
         <fieldset>
             <h1> Nouvelle commande</h1>
-            <label for="client">Client</label><input type="text" id="client" value=""></input><br>
-            <label for="commande">Détail de la commande</label><textarea id="commande" value=""></textarea><br>
-            <label for="recu">Date de commande</label><input type="date" id="recu"></input><br>
-            <label for="limite">Date de livraison</label><input type="date" id="limite"></input><br>
+            <label for="client">Client</label><input type="text" name="client" value=""></input><br>
+            <label for="commande">Détail de la commande</label><textarea name="commande" value=""></textarea><br>
+            <label for="recu">Date de commande</label><input type="date" name="recu"></input><br>
+            <label for="limite">Date de livraison</label><input type="date" name="limite"></input><br>
         </fieldset>
         <button type="submit">envoyer</button>
-        <!-- <button type="button" onclick="sauvegarder()">save</button> -->
     </form>
 
     <div id="container"></div>
   
-    <script src="script.js"></script>  
+      
     
 </body>
 

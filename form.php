@@ -7,9 +7,14 @@
 </head>
 <body>
 
+Welcome <?php echo $_POST["client"]; ?>
+
 <?php 
-$myfile = fopen("data.json", "w");
-fwrite ($myfile, $PHP);
+$myJSON = array("client" => $_POST["client"], "commande" => $_POST["commande"], "recu" => $_POST["recu"], "limite" => $_POST["limite"]);
+$myJSON = json_encode($myJSON);
+
+$myfile = fopen("data.json", "a") or die("Unable to open file!");
+fwrite($myfile, $myJSON. "\n");
 fclose($myfile);
 ?>
 
