@@ -1,3 +1,4 @@
-
 {"client":"testus","commande":"10 test","recu":"2024-06-03","limite":"2024-06-04"}
 {"client":"testas","commande":"25test","recu":"2024-06-03","limite":"2024-06-04"}
+{"client":"testris","commande":"25 truc 30 machin, 40 bidule","recu":"2024-06-04","limite":"2024-06-05"}
+{"client":"testrus","commande":"25 truc \r\n30 machin, 40 bidule","recu":"2024-06-04","limite":"2024-06-05"}

@@ -30,9 +30,6 @@ function tableau() {
    tbl.setAttribute("border", "2") 
 }
 
-   let PHP =
-   console.log(PHP)
-
    /* const row = document.createElement("tr");
       const cell = document.createElement("td");
       const cellText = document.createTextNode(``);
