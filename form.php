@@ -7,16 +7,18 @@
 </head>
 <body>
 
-Welcome <?php echo $_POST["client"]; ?>
+Commande prise en compte <?php echo $_POST["client"]; ?>
 
 <?php 
-$myJSON = array("client" => $_POST["client"], "commande" => $_POST["commande"], "recu" => $_POST["recu"], "limite" => $_POST["limite"]);
+$myJSON = array("identifiant" => $_POST["identifiant"], "client" => $_POST["client"], "commande" => $_POST["commande"], "recu" => $_POST["recu"], "limite" => $_POST["limite"], "statut" => "enregistre");
 $myJSON = json_encode($myJSON);
 
 $myfile = fopen("data.json", "a") or die("Unable to open file!");
-fwrite($myfile, $myJSON. "\n");
+fwrite($myfile, "\n");
+fwrite($myfile, $myJSON);
 fclose($myfile);
 ?>
+
 
 </body>
 </html>

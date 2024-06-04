@@ -1,43 +1,23 @@
-function get_json() {
+function sortTable(n) {
 
-   let client = "client: " + document.getElementsByName("client").value;
-   let commande = "commande: " + document.getElementsByName("commande").value
-   let recu = "recu: " + document.getElementsByName("recu").value
-   let limite = "limite: " + document.getElementsByName("limite").value
-   let facture = client + "," + commande + "," + recu + "," + limite;
-   const myJSON = JSON.stringify(facture)
-   let num = new Date()
-   num = JSON.stringify(num)
-   let PHP = num + ", "+ myJSON;
-   document.getElementsByName("container").innerHTML = "PHP"
+   const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+   v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+   )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+// do the work...
+document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+ const table = th.closest('table');
+ const tbody = table.querySelector('tbody');
+ Array.from(tbody.querySelectorAll('tr'))
+   .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+   .forEach(tr => tbody.appendChild(tr) );
+})));
 }
 
-function tableau() {
-  const tbl = document.createElement("table");
-   const tblBody = document.createElement("tbody");
-   for (let i=0;i<1;i++) {
-      const row = document.createElement("tr");
-      for (let j = 0; j<6;j++) {
-         const cell = document.createElement("td");
-         const cellText = document.createTextNode(`cell in row ${i}, collumn ${j}`);
-         cell.appendChild(cellText);
-         row.appendChild(cell);
-      }
-      tblBody.appendChild(row);
-   }
-   tbl.appendChild(tblBody);
-   document.body.appendChild(tbl);
-   tbl.setAttribute("border", "2") 
+function enregistre(a) {
+console.log (a)
 }
-
-   /* const row = document.createElement("tr");
-      const cell = document.createElement("td");
-      const cellText = document.createTextNode(``);
-      cell.appendChild(cellText)
- */
-/* Récupérer les données du formulaire et générer des paires clef/valeur dans un 'objet':
-   { "clef": "valeur" ... }
-    Sauvegarder l'objet dans un cookie/localstorage */
-
 
 

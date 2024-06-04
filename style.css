@@ -24,3 +24,6 @@ table, td, th{
     min-width: 6rem;
     text-align:center;
 }
+th {
+    cursor:pointer" 
+}

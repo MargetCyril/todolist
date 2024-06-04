@@ -10,9 +10,10 @@
 
 <body>
 
-    <form  action="form.php" method="POST">
+    <form action="form.php" method="POST">
         <fieldset>
             <h1> Nouvelle commande</h1>
+            <label for="identifiant">Identifiant</label><input type="text" name="identifiant" value=""></input><br>
             <label for="client">Client</label><input type="text" name="client" value=""></input><br>
             <label for="commande">Détail de la commande</label><textarea name="commande" value=""></textarea><br>
             <label for="recu">Date de commande</label><input type="date" name="recu"></input><br>
@@ -20,7 +21,7 @@
         </fieldset>
         <button type="submit">envoyer</button>
     </form>
-  
+
 </body>
 
 </html>
