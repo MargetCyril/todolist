@@ -25,11 +25,11 @@
             </tr>
         </thead>
         <tbody>    
-<!-- <script>
+<script>
     function encours(id) {
         console.log ("ok", id)
     }
-    </script> -->
+    </script> 
 <?php
 
    function encours($id) {
@@ -52,6 +52,7 @@
        $myfile = fopen("data.json", "w") or die("unable to open file!");
            fwrite($myfile, $memoire);
            fclose($myfile);
+           
     }
 
 $myfile = fopen("data.json", "r") or die("unable to open file!");
@@ -83,15 +84,23 @@ $myJSON = json_decode($myJSON); */
     echo '<td>';
     echo $myJSON["statut"];
     echo '<br>';
-    echo '<button type="button" onclick="enregistre('.$id.')">Enregistré</button>'; 
+    echo '<form action="encours('.$id.')" method="POST">
+    <select id=statut>
+            <option id="enregistre" value="enregistre">Enregistré</option>
+            <option id="encours" value="en cours">En Cours</option>
+            <option id="facture" value="facture">A Facturé</option>
+</select>
+<button type=submit>val</button>';
+    /* echo '<button type="button" onclick="enregistre('.$id.')">Enregistré</button>'; 
     echo '<button type="button" onclick="encours('.$id.')">En cours</button>';
-    echo '<button type="button" onclick="facture('.$id.')">Facture</button>'; 
+    echo '<button type="button" onclick="facture('.$id.')">Facture</button>'; */  
     echo '</td>';
     echo '</tr>';
 }
 fclose($myfile);
 
 ?>
+
 
 </tbody>
 
