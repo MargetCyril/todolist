@@ -1,36 +1,73 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tableau</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body>   
 
 <table id="myTable2">
         <caption> To Do List</caption>
         <thead>
-            <td colspan="5">Commande en cours</td>
+            <td colspan="6">Commande en cours</td>
             <tr>
-                <th onclick="sortTable(0)">Client</th>
-                <th onclick="sortTable(1)">Commande</th>
-                <th onclick="sortTable(2)">date d'entrée</th>
-                <th onclick="sortTable(3)">date limite</th>
-                <th onclick="sortTable(4)">statut</th>
+                <th onclick="sortTable(0)">numero de commande</th>
+                <th onclick="sortTable(1)">Client</th>
+                <th onclick="sortTable(2)">Commande</th>
+                <th onclick="sortTable(3)">date d'entrée</th>
+                <th onclick="sortTable(4)">date limite</th>
+                <th onclick="sortTable(5)">statut</th>
             </tr>
         </thead>
         <tbody>    
-
+<!-- <script>
+    function encours(id) {
+        console.log ("ok", id)
+    }
+    </script> -->
 <?php
+
+   function encours($id) {
+       $myfile = fopen("data.json", "r") or die("unable to open file!");
+       while(!feof($myfile)) {
+           $myJSON = fgets($myfile);
+           $myJSON = json_decode($myJSON, true);
+           if ($id === $myJSON["identifiant"]){
+               $myJSON = $myJSON[$id];
+               $myJSON[5] = "En Cours";
+               $myJSON = json_encode($myJSON);
+               $memoire = $memoire."/n".$myJSON;
+           }
+           else {
+                $myJSON = json_encode($myJSON);
+               $memoire = $memoire."\n".$myJSON;
+           }
+       }
+       fclose($myfile);
+       $myfile = fopen("data.json", "w") or die("unable to open file!");
+           fwrite($myfile, $memoire);
+           fclose($myfile);
+    }
 
 $myfile = fopen("data.json", "r") or die("unable to open file!");
 while(!feof($myfile)) {
     $myJSON = fgets($myfile);
     $myJSON = json_decode($myJSON, true);
+    $id = $myJSON["identifiant"];
+    $myJSON = $myJSON[$id];
+    
 /* echo $myJSON;
-echo '<br>'; */
-    echo '<tr>';
+echo '<br>';
+$myJSON = json_decode($myJSON); */
+       echo '<tr>'; 
+       echo '<td id='.$id.'>';
+    echo $id;
+    echo '</td>';
     echo '<td>';
     echo $myJSON["client"];
     echo '</td>';
@@ -46,22 +83,20 @@ echo '<br>'; */
     echo '<td>';
     echo $myJSON["statut"];
     echo '<br>';
-    echo '<button type="button" onclick=enregistre()>Enregistré</button> <button type="button" onclick=encours()>En cours</button> <button type="button" onclick=facture()>Facture</button>'; 
+    echo '<button type="button" onclick="enregistre('.$id.')">Enregistré</button>'; 
+    echo '<button type="button" onclick="encours('.$id.')">En cours</button>';
+    echo '<button type="button" onclick="facture('.$id.')">Facture</button>'; 
     echo '</td>';
     echo '</tr>';
 }
 fclose($myfile);
+
 ?>
+
 </tbody>
 
-<?php
-$myfile = fopen("data.json","r");
-$myJSON = fread($myfile, filesize("data.json"));
-$myJSON = json_decode($myJSON,true);
-var_dump ($myJSON);
-?>
 
-<!--  numero de commande , bouton,  -->
-<script src="script.js"></script>
+<!--  numero de commande , bouton, -->
+<script src="script.js"></script> 
 </body>
 </html>

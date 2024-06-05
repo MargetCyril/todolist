@@ -10,7 +10,8 @@
 Commande prise en compte <?php echo $_POST["client"]; ?>
 
 <?php 
-$myJSON = array("identifiant" => $_POST["identifiant"], "client" => $_POST["client"], "commande" => $_POST["commande"], "recu" => $_POST["recu"], "limite" => $_POST["limite"], "statut" => "enregistre");
+$myJSON = array("client" => $_POST["client"], "commande" => $_POST["commande"], "recu" => $_POST["recu"], "limite" => $_POST["limite"], "statut" => "enregistre");
+$myJSON = array("identifiant" => $_POST["identifiant"], $_POST["identifiant"] => $myJSON);
 $myJSON = json_encode($myJSON);
 
 $myfile = fopen("data.json", "a") or die("Unable to open file!");
