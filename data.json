@@ -1,2 +1,3 @@
-{"identifiant":"01","01":{"client":"Caius Testus","commande":"3 l\u00e9gion, 12 cesterces","recu":"2024-06-06","limite":"2024-06-21","statut":"enregistre"}}
-{"identifiant":"02","02":{"client":"Ouais","commande":"D'accord","recu":"2024-06-05","limite":"2024-06-06","statut":"enregistre"}}
+{"identifiant":"01","01":{"client":"Caius Testus","commande":"3 l\u00e9gion 12cesterces","recu":"2024-06-06","limite":"2025-03-20","statut":"en cours"}}
+{"identifiant":"02","02":{"client":"Napol\u00e9on B.","commande":"des renforts","recu":"1815-06-18","limite":"1815-06-19","statut":"facture"}}
+{"identifiant":"02","02":{"client":"Napol\u00e9on B.","commande":"des renforts","recu":"1815-06-18","limite":"1815-06-19","statut":"facture"}}

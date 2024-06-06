@@ -1,21 +1,18 @@
-
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>   
-<header>
+<body>
+    header>
         <a href=form.html>Revenir au formulaire</a>
         <a href=index.php>Aller à la liste atelier</a>
         <a href=facture.php>Aller à la liste facture</a>
     </header>
-
+    
 <table id="myTable2">
         <caption> To Do List</caption>
         <thead>
@@ -38,7 +35,7 @@ while(!feof($myfile)) {
     $myJSON = json_decode($myJSON, true);
     $id = $myJSON["identifiant"];
     $myJSON = $myJSON[$id];
-    if ($myJSON["statut"] !== "facture"){
+    if ($myJSON["statut"] == "facture"){
 
        echo '<tr>'; 
        echo '<td id='.$id.'>';
@@ -65,7 +62,6 @@ while(!feof($myfile)) {
             <option id="statut" value="enregistre">Enregistré</option>
             <option id="statut" value="en cours">En Cours</option>
             <option id="statut" value="facture">A Facturé</option>
-            <option id="statut" value="terminer">Terminer</option>
 </select>
 <button type=submit>val</button>
 </form>';
@@ -78,8 +74,6 @@ fclose($myfile);
 ?>
 
 
-</tbody>
 
-<script src="script.js"></script> 
 </body>
 </html>

@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+<header>
+        <a href=form.html>Revenir au formulaire</a>
+        <a href=index.php>Aller à la liste atelier</a>
+        <a href=facture.php>Aller à la liste facture</a>
+    </header>
 
 Commande prise en compte <?php echo $_POST["client"]; ?>
 
@@ -19,7 +24,6 @@ fwrite($myfile, "\n");
 fwrite($myfile, $myJSON);
 fclose($myfile);
 ?>
-
 
 </body>
 </html>
