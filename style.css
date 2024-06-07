@@ -40,3 +40,7 @@ header {
     margin:6px; 
     align-content: space-evenly;
 }
+
+.error {
+    color:red
+}

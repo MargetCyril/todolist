@@ -11,7 +11,7 @@
 
 <body>   
 <header>
-        <a href=form.html>Revenir au formulaire</a>
+        <a href=form.php>Revenir au formulaire</a>
         <a href=index.php>Aller à la liste atelier</a>
         <a href=facture.php>Aller à la liste facture</a>
     </header>
@@ -21,12 +21,12 @@
         <thead>
             <td colspan="6">Commande en cours</td>
             <tr>
-                <th onclick="sortTable(0)">numero de commande</th>
+                <th onclick="sortTable(0)">Identifiant</th>
                 <th onclick="sortTable(1)">Client</th>
                 <th onclick="sortTable(2)">Commande</th>
-                <th onclick="sortTable(3)">date d'entrée</th>
-                <th onclick="sortTable(4)">date limite</th>
-                <th onclick="sortTable(5)">statut</th>
+                <th onclick="sortTable(3)">Date d'enregistrement</th>
+                <th onclick="sortTable(4)">Date limite</th>
+                <th onclick="sortTable(5)">Statut</th>
             </tr>
         </thead>
         <tbody>    

@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-        <a href=form.html>Revenir au formulaire</a>
+        <a href=form.php>Revenir au formulaire</a>
         <a href=index.php>Aller à la liste atelier</a>
         <a href=facture.php>Aller à la liste facture</a>
     </header>
@@ -23,8 +23,8 @@ $memoire = "";
        while(!feof($myfile)) {
            $myJSON = fgets($myfile);
            $myJSON = json_decode($myJSON, true);
-           
            if ($id === $myJSON["identifiant"]){
+            if ($_POST["statut"] !== "terminer"){
                $myJSON = $myJSON[$id];
                $myJSON["statut"] = $_POST["statut"];
                 $myJSON = array("identifiant" => $_POST["id"], $_POST["id"] => $myJSON);
@@ -35,6 +35,7 @@ $memoire = "";
                else {
                 $memoire = $memoire."\n".$myJSON;
                }
+            }
            }
            else {
             $myJSON = json_encode($myJSON);
