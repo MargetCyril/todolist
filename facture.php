@@ -61,7 +61,7 @@ while(!feof($myfile)) {
     <select name="statut">
             <option id="statut" value="enregistre">Enregistré</option>
             <option id="statut" value="en cours">En Cours</option>
-            <option id="statut" value="facture">A Facturé</option>
+            <option id="statut" value="facture">A Facturer</option>
             <option id="statut" value="terminer">Terminer</option>
 </select>
 <button type=submit>val</button>
