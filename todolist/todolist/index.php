@@ -65,7 +65,6 @@ while(!feof($myfile)) {
     echo $myJSON["recu"];
     echo '</td>';
     echo '<td>';
-
     echo $date->format('%R%a jours');
     echo '<br>';
     echo $myJSON["limite"];
@@ -84,7 +83,8 @@ while(!feof($myfile)) {
 <button type=submit class="btn btn-primary">valider</button>
 </form>';
     echo '</td>';
-    echo '</tr>';}
+    echo '</tr>';
+}
 
     else {
         echo '<tr>'; 
@@ -101,7 +101,6 @@ while(!feof($myfile)) {
     echo $myJSON["recu"];
     echo '</td>';
     echo '<td>';
-
     echo $date->format('%R%a jours');
     echo '<br>';
     echo $myJSON["limite"];

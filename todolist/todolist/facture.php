@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    header>
-        <a href=form.html>Revenir au formulaire</a>
+    <header>
+        <a href=form.php>Revenir au formulaire</a>
         <a href=index.php>Aller à la liste atelier</a>
         <a href=facture.php>Aller à la liste facture</a>
     </header>
@@ -39,6 +39,51 @@ while(!feof($myfile)) {
     $myJSON = $myJSON[$id];
     if ($myJSON["statut"] == "facture"){
 
+        $limit = strtotime($myJSON["limite"]);
+        $limit = date("Y-m-d", $limit);
+        $limit = new DateTimeImmutable($limit);
+        $jour = date("Y-m-d");
+        $jour = new DateTimeImmutable($jour);
+        $date = $jour->diff($limit);
+        $diff = $date->format("%R%a");
+        if ($diff <= 3) {
+           
+           echo '<tr class="table-danger">'; 
+           echo '<td id='.$id.'>';
+        echo $id;
+        echo '</td>';
+        echo '<td>';
+        echo $myJSON["client"];
+        echo '</td>';
+        echo '<td>';
+        echo $myJSON["commande"];
+        echo '</td>';
+        echo '<td>';
+        echo $myJSON["recu"];
+        echo '</td>';
+        echo '<td>';
+        echo $date->format('%R%a jours');
+        echo '<br>';
+        echo $myJSON["limite"];
+        echo '</td>';
+        echo '<td>';
+        echo $myJSON["statut"];
+        echo '<br>';
+        echo '<form action="change.php" method="POST">
+        <input name="id" type="hidden" value='.$id.' ></input>
+        <select name="statut">
+                <option id="statut" value="enregistre">Enregistré</option>
+                <option id="statut" value="en cours">En Cours</option>
+                <option id="statut" value="facture">A Facturé</option>
+                <option id="statut" value="terminer">Terminer</option>
+    </select>
+    <button type=submit class="btn btn-primary">valider</button>
+    </form>';
+        echo '</td>';
+        echo '</tr>';
+    }
+    
+        else {
        echo '<tr>'; 
        echo '<td id='.$id.'>';
     echo $id;
@@ -70,6 +115,7 @@ while(!feof($myfile)) {
 </form>';
     echo '</td>';
     echo '</tr>';
+        }
 }
 }
 fclose($myfile);
